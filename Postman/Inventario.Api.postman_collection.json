@@ -1,0 +1,465 @@
+{
+  "info": {
+    "_postman_id": "926d25b8-8b12-4b38-b7dc-89bff93e74b9",
+    "name": "Inventario.Api",
+    "description": "Colección CRUD para Bodega, Existencia y MovimientoInventario. Ajusta baseUrl al puerto HTTP/HTTPS de Inventario.Api. Los IDs de Producto deben existir en CatalogoDB si se validan desde la aplicación.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "57564361",
+    "_collection_link": "https://go.postman.co/collection/57564361-926d25b8-8b12-4b38-b7dc-89bff93e74b9?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Bodegas",
+      "item": [
+        {
+          "name": "Listar bodegas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5119/api/Bodegas",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5119",
+              "path": [
+                "api",
+                "Bodegas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar bodega por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5119/api/Bodegas/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5119",
+              "path": [
+                "api",
+                "Bodegas",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Crear bodega",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (pm.response.code === 201 || pm.response.code === 200) {\n  const data = pm.response.json();\n  if (data.idBodega) pm.collectionVariables.set('idBodega', data.idBodega);\n}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Bodega Central\",\n  \"ciudad\": \"Quito\",\n  \"direccion\": \"Av. Amazonas y Naciones Unidas\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5119/api/Bodegas",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5119",
+              "path": [
+                "api",
+                "Bodegas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar bodega",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idBodega\": \"{{idBodega}}\",\n  \"nombre\": \"Bodega Central Actualizada\",\n  \"ciudad\": \"Quito\",\n  \"direccion\": \"Av. Amazonas y Naciones Unidas\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Bodegas/{{idBodega}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "Bodegas",
+                "{{idBodega}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar bodega",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5119/api/Bodegas/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5119",
+              "path": [
+                "api",
+                "Bodegas",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Existencias",
+      "item": [
+        {
+          "name": "Listar existencias",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5119/api/Existencias",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5119",
+              "path": [
+                "api",
+                "Existencias"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar existencia por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5119/api/Existencias/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5119",
+              "path": [
+                "api",
+                "Existencias",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Crear existencia",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (pm.response.code === 201 || pm.response.code === 200) {\n  const data = pm.response.json();\n  if (data.idExistencia) pm.collectionVariables.set('idExistencia', data.idExistencia);\n}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idProducto\": 1,\n  \"idBodega\": 1,\n  \"stock\": 100\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5119/api/Existencias",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5119",
+              "path": [
+                "api",
+                "Existencias"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar existencia",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idExistencia\": \"{{idExistencia}}\",\n  \"idProducto\": 1,\n  \"idBodega\": 1,\n  \"stock\": 150\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Existencias/{{idExistencia}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "Existencias",
+                "{{idExistencia}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar existencia",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Existencias/{{idExistencia}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "Existencias",
+                "{{idExistencia}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "MovimientoInventario",
+      "item": [
+        {
+          "name": "Listar movimientos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5119/api/MovimientoInventario",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5119",
+              "path": [
+                "api",
+                "MovimientoInventario"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar movimiento por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5119/api/MovimientoInventario/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5119",
+              "path": [
+                "api",
+                "MovimientoInventario",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Registrar movimiento de entrada",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (pm.response.code === 201 || pm.response.code === 200) {\n  const data = pm.response.json();\n  if (data.idMovimiento) pm.collectionVariables.set('idMovimiento', data.idMovimiento);\n}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idProducto\": 1,\n  \"idBodega\": 1,\n  \"tipo\": \"Entrada\",\n  \"cantidad\": 20\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5119/api/MovimientoInventario",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5119",
+              "path": [
+                "api",
+                "MovimientoInventario"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar movimiento",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idMovimiento\": \"{{idMovimiento}}\",\n  \"idProducto\": 1,\n  \"idBodega\": 1,\n  \"tipo\": \"Entrada\",\n  \"cantidad\": 25\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5119/api/MovimientoInventario/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5119",
+              "path": [
+                "api",
+                "MovimientoInventario",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar movimiento",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5119/api/MovimientoInventario/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5119",
+              "path": [
+                "api",
+                "MovimientoInventario",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000"
+    },
+    {
+      "key": "idBodega",
+      "value": "1"
+    },
+    {
+      "key": "idExistencia",
+      "value": "1"
+    },
+    {
+      "key": "idMovimiento",
+      "value": "1"
+    }
+  ]
+}

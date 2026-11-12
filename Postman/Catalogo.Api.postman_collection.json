@@ -1,0 +1,471 @@
+{
+  "info": {
+    "_postman_id": "1821c63a-08a8-4313-b568-3cc5e9079c01",
+    "name": "Catalogo.Api",
+    "description": "Colección CRUD para Categoria, Marca y Producto. Ajusta baseUrl al puerto HTTP/HTTPS de tu API.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "57564361",
+    "_collection_link": "https://go.postman.co/collection/57564361-1821c63a-08a8-4313-b568-3cc5e9079c01?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Categorias",
+      "item": [
+        {
+          "name": "Listar categorías",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5297/api/Categorias",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5297",
+              "path": [
+                "api",
+                "Categorias"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar categoría por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5297/api/Categorias/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5297",
+              "path": [
+                "api",
+                "Categorias",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Crear categoría",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (pm.response.code === 201 || pm.response.code === 200) {\n  const data = pm.response.json();\n  if (data.idCategoria) pm.collectionVariables.set('idCategoria', data.idCategoria);\n}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Redes\",\n  \"descripcion\": \"Routers, switches y equipos de conectividad\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5297/api/Categorias",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5297",
+              "path": [
+                "api",
+                "Categorias"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar categoría",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idCategoria\": \"{{idCategoria}}\",\n  \"nombre\": \"Redes y conectividad\",\n  \"descripcion\": \"Equipos de comunicación y conectividad\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5297/api/Categorias/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5297",
+              "path": [
+                "api",
+                "Categorias",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar categoría",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5297/api/Categorias/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5297",
+              "path": [
+                "api",
+                "Categorias",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Marcas",
+      "item": [
+        {
+          "name": "Listar marcas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5297/api/Marcas",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5297",
+              "path": [
+                "api",
+                "Marcas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar marca por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5297/api/Marcas/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5297",
+              "path": [
+                "api",
+                "Marcas",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Crear marca",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (pm.response.code === 201 || pm.response.code === 200) {\n  const data = pm.response.json();\n  if (data.idMarca) pm.collectionVariables.set('idMarca', data.idMarca);\n}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Logitech\",\n  \"paisOrigen\": \"Suiza\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5297/api/Marcas",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5297",
+              "path": [
+                "api",
+                "Marcas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar marca",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idMarca\": \"{{idMarca}}\",\n  \"nombre\": \"Logitech G\",\n  \"paisOrigen\": \"Suiza\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5297/api/Marcas/3",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5297",
+              "path": [
+                "api",
+                "Marcas",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar marca",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5297/api/Marcas/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5297",
+              "path": [
+                "api",
+                "Marcas",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Productos",
+      "item": [
+        {
+          "name": "Listar productos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5297/api/Productos",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5297",
+              "path": [
+                "api",
+                "Productos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar producto por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5297/api/Productos/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5297",
+              "path": [
+                "api",
+                "Productos",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Crear producto",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (pm.response.code === 201 || pm.response.code === 200) {\n  const data = pm.response.json();\n  if (data.idProducto) pm.collectionVariables.set('idProducto', data.idProducto);\n}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idCategoria\": 1,\n  \"idMarca\": 1,\n  \"nombre\": \"Mouse inalámbrico\",\n  \"sku\": \"MOU-LOG-001\",\n  \"precio\": 25.5,\n  \"estado\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5297/api/Productos",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5297",
+              "path": [
+                "api",
+                "Productos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar producto",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idProducto\": \"{{idProducto}}\",\n  \"idCategoria\": 1,\n  \"idMarca\": 1,\n  \"nombre\": \"Mouse inalámbrico Logitech\",\n  \"sku\": \"MOU-LOG-001\",\n  \"precio\": 29.99,\n  \"estado\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5297/api/Productos/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5297",
+              "path": [
+                "api",
+                "Productos",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar producto",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5297/api/Productos/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5297",
+              "path": [
+                "api",
+                "Productos",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000"
+    },
+    {
+      "key": "idCategoria",
+      "value": "1"
+    },
+    {
+      "key": "idMarca",
+      "value": "1"
+    },
+    {
+      "key": "idProducto",
+      "value": "1"
+    }
+  ]
+}
