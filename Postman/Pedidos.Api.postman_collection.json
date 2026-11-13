@@ -1,0 +1,400 @@
+{
+  "info": {
+    "_postman_id": "84960b81-8c71-4e7f-971e-46b3ae498648",
+    "name": "Pedidos.Api",
+    "description": "CRUD para Microservicio 3: Pedidos.Api. Ajusta la variable baseUrl si tu API usa otro puerto.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "57564361",
+    "_collection_link": "https://go.postman.co/collection/57564361-84960b81-8c71-4e7f-971e-46b3ae498648?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Cliente - Crear",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"nombres\": \"Juan Carlos Perez\", \"cedula\": \"1750123456\", \"correo\": \"juan.perez@gmail.com\"}",
+          "options": {
+            "raw": {
+              "language": "text"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5076/api/Clientes",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5076",
+          "path": [
+            "api",
+            "Clientes"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Cliente - Listar",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5076/api/Clientes",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5076",
+          "path": [
+            "api",
+            "Clientes"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Cliente - Obtener por ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5076/api/Clientes/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5076",
+          "path": [
+            "api",
+            "Clientes",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Cliente - Actualizar",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"idCliente\": 1, \"nombres\": \"Juan Carlos Perez Actualizado\", \"cedula\": \"1750123456\", \"correo\": \"juan.actualizado@gmail.com\"}",
+          "options": {
+            "raw": {
+              "language": "text"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5076/api/Clientes/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5076",
+          "path": [
+            "api",
+            "Clientes",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Cliente - Eliminar",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5076/api/Clientes/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5076",
+          "path": [
+            "api",
+            "Clientes",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Pedido - Crear",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"idCliente\": 1, \"fecha\": \"2026-11-12T18:00:00\", \"total\": 150.5, \"estado\": true}",
+          "options": {
+            "raw": {
+              "language": "text"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5076/api/Pedidos",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5076",
+          "path": [
+            "api",
+            "Pedidos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Pedido - Listar",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5076/api/Pedidos",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5076",
+          "path": [
+            "api",
+            "Pedidos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Pedido - Obtener por ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/Pedido/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "Pedido",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Pedido - Actualizar",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"idPedido\": 1, \"idCliente\": 1, \"fecha\": \"2026-11-12T18:00:00\", \"total\": 175.75, \"estado\": true}",
+          "options": {
+            "raw": {
+              "language": "text"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5076/api/Pedidos/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5076",
+          "path": [
+            "api",
+            "Pedidos",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Pedido - Eliminar",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5076/api/Pedidos/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5076",
+          "path": [
+            "api",
+            "Pedidos",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DetallePedido - Crear",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"idPedido\": 1, \"idProducto\": 1, \"cantidad\": 2, \"precioUnitario\": 50.0}",
+          "options": {
+            "raw": {
+              "language": "text"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5076/api/DetallePedido",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5076",
+          "path": [
+            "api",
+            "DetallePedido"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DetallePedido - Listar",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5076/api/DetallePedido",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5076",
+          "path": [
+            "api",
+            "DetallePedido"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DetallePedido - Obtener por ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/DetallePedido/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "DetallePedido",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DetallePedido - Actualizar",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"idDetalle\": 1, \"idPedido\": 1, \"idProducto\": 1, \"cantidad\": 3, \"precioUnitario\": 50.0}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/DetallePedido/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "DetallePedido",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DetallePedido - Eliminar",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5076/api/DetallePedido/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5076",
+          "path": [
+            "api",
+            "DetallePedido",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000"
+    }
+  ]
+}
